@@ -1,4 +1,4 @@
-package com.project.member.tournament;
+package com.project.tournament;
 
 public class Tournament {
 }
