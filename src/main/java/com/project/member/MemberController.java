@@ -68,7 +68,7 @@ public class MemberController {
 
     @GetMapping("/search/tournamentDate/{startDate}")
     public ResponseEntity<List<Member>> getMemberByTournamentStartDate(@PathVariable LocalDate startDate) {
-        List<Member> members = memberService.getMemberByTournamenetStartDate(startDate);
+        List<Member> members = memberService.getMemberByTournamentStartDate(startDate);
 
         if (members.isEmpty()){
             return ResponseEntity.notFound().build();
