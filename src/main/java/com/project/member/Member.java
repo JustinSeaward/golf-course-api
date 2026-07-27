@@ -12,8 +12,7 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String mailingAddress;
     private String email;
     private String phoneNumber;
@@ -23,10 +22,9 @@ public class Member {
     public Member(){
     }
 
-    public Member(long id, String firstName, String lastName, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
+    public Member(long id, String name, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.mailingAddress = mailingAddress;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -42,20 +40,12 @@ public class Member {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMailingAddress() {
