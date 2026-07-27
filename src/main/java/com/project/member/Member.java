@@ -19,9 +19,9 @@ public class Member {
 
     @ManyToOne
     @JoinColumn(name = "tournament_member")
-    private Tournament startDate;
+    private Tournament tournament;
 
-    public Member(){
+    public Member() {
     }
 
     public Member(long id, String name, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
@@ -90,11 +90,12 @@ public class Member {
         this.membershipType = membershipType;
     }
 
-    public Tournament getStartDate() {
-        return startDate;
+    public Tournament getTournament() {
+        return tournament;
     }
 
-    public void setStartDate(Tournament startDate) {
-        this.startDate = startDate;
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
     }
 }
+
