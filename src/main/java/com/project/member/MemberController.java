@@ -66,7 +66,7 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(member);
     }
 
-    @GetMapping("/search/tournamentDate/{startDate}")
+    @GetMapping("/search/tournament/startDate/{startDate}")
     public ResponseEntity<List<Member>> getMemberByTournamentStartDate(@PathVariable LocalDate startDate) {
         List<Member> members = memberService.getMemberByTournamentStartDate(startDate);
 
