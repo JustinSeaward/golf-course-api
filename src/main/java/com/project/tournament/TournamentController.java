@@ -47,10 +47,10 @@ public class TournamentController {
     }
 
     @GetMapping("/search/location/{location}")
-    public ResponseEntity<List<Tournament>> getTournamentByLocation(@PathVariable String location) {
-        List<Tournament> tournaments = tournamentService.getTournamentByLocation(location);
+    public ResponseEntity<Tournament> getTournamentByLocation(@PathVariable String location) {
+        Tournament tournaments = tournamentService.getTournamentByLocation(location);
 
-        if (tournaments.isEmpty()){
+        if (tournaments == null){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(tournaments);
