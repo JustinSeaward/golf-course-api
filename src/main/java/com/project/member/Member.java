@@ -1,9 +1,7 @@
 package com.project.member;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.project.tournament.Tournament;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -18,6 +16,10 @@ public class Member {
     private String phoneNumber;
     private LocalDate membershipStartDate;
     private String membershipType;
+
+    @ManyToOne
+    @JoinColumn(name = "tournament_member")
+    private Tournament startDate;
 
     public Member(){
     }
@@ -86,5 +88,13 @@ public class Member {
 
     public void setMembershipType(String membershipType) {
         this.membershipType = membershipType;
+    }
+
+    public Tournament getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Tournament startDate) {
+        this.startDate = startDate;
     }
 }
