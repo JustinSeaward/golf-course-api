@@ -9,8 +9,11 @@ import java.util.List;
 @Service
 public class MemberService {
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
 
     public Member createMember(Member member){
@@ -18,7 +21,7 @@ public class MemberService {
     }
 
     public List<Member> getAllMembers(){
-        return (List<Member>) memberRepository.findAll();
+        return memberRepository.findAll();
     }
 
     public List<Member> getMemberByName(String name){
