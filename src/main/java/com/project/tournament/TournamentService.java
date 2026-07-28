@@ -19,7 +19,7 @@ public class TournamentService {
     }
 
     public List<Tournament> getAllTournaments(){
-        return (List<Tournament>) tournamentRepository.findAll();
+        return tournamentRepository.findAll();
     }
 
     public Tournament getTournamentByLocation(String location) {
@@ -28,5 +28,9 @@ public class TournamentService {
 
     public List<Tournament> getTournamentByStartDate(LocalDate startDate){
         return tournamentRepository.findTournamentByStartDate(startDate);
+    }
+
+    public Tournament getTournamentById(Long id){
+        return tournamentRepository.findTournamentById(id);
     }
 }
