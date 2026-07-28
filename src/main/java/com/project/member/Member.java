@@ -30,7 +30,7 @@ public class Member {
         this.mailingAddress = mailingAddress;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipStartDate = membershipStartDate;
+        this.membershipStartDate = LocalDate.now();
         this.membershipType = membershipType;
     }
 
