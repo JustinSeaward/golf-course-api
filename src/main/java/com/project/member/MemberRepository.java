@@ -10,4 +10,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     List<Member> findMemberByMembershipType(String membershipType);
     Member findMemberByPhoneNumber(String phoneNumber);
     List<Member> findMemberByTournamentStartDate(LocalDate startDate);
+    Member findMemberById(Long id);
 }
