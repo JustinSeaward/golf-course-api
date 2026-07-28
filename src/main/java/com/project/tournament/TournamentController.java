@@ -1,6 +1,5 @@
 package com.project.tournament;
 
-import com.project.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +35,7 @@ public class TournamentController {
         return ResponseEntity.status(HttpStatus.OK).body(tournaments);
     }
 
-    @GetMapping("/search/tournament/startdate/{startDate}")
+    @GetMapping("/search/startdate/{startDate}")
     public ResponseEntity<List<Tournament>> getTournamentByStartDate(@PathVariable LocalDate startDate) {
         List<Tournament> tournaments = tournamentService.getTournamentByStartDate(startDate);
 

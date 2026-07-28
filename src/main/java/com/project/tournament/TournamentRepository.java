@@ -8,4 +8,5 @@ import java.util.List;
 public interface TournamentRepository extends JpaRepository<Tournament, Long> {
     List<Tournament> findTournamentByStartDate(LocalDate tournamentStartDate);
     Tournament findTournamentByLocation(String location);
+    Tournament findTournamentById(Long id);
 }

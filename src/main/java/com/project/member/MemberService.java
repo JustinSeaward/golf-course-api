@@ -1,5 +1,6 @@
 package com.project.member;
 
+import com.project.tournament.Tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,8 @@ import java.util.List;
 @Service
 public class MemberService {
 
-    private final MemberRepository memberRepository;
+    @Autowired
+    private MemberRepository memberRepository;
 
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
@@ -38,5 +40,15 @@ public class MemberService {
 
     public List<Member> getMemberByTournamentStartDate(LocalDate startDate){
         return memberRepository.findMemberByTournamentStartDate(startDate);
+    }
+
+    public Member getMemberById(Long id){
+        return memberRepository.findMemberById(id);
+    }
+
+    public Member registerMemberToTournament(Member member, Tournament tournament){
+            member.setTournament(tournament);
+            return memberRepository.save(member);
+
     }
 }
