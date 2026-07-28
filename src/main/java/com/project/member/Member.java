@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private String mailingAddress;
     private String email;
@@ -24,7 +24,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(long id, String name, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
+    public Member(Long id, String name, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
         this.id = id;
         this.name = name;
         this.mailingAddress = mailingAddress;
@@ -34,11 +34,11 @@ public class Member {
         this.membershipType = membershipType;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
