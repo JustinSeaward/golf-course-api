@@ -1,9 +1,7 @@
 package com.project.member;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.project.tournament.Tournament;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -11,51 +9,45 @@ import java.time.LocalDate;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String firstName;
-    private String lastName;
+    private Long id;
+    private String name;
     private String mailingAddress;
     private String email;
     private String phoneNumber;
     private LocalDate membershipStartDate;
     private String membershipType;
 
-    public Member(){
+    @ManyToOne
+    @JoinColumn(name = "tournament_member")
+    private Tournament tournament;
+
+    public Member() {
     }
 
-    public Member(long id, String firstName, String lastName, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
+    public Member(Long id, String name, String mailingAddress, String email, String phoneNumber, LocalDate membershipStartDate, String membershipType) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.mailingAddress = mailingAddress;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.membershipStartDate = membershipStartDate;
+        this.membershipStartDate = LocalDate.now();
         this.membershipType = membershipType;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMailingAddress() {
@@ -97,4 +89,13 @@ public class Member {
     public void setMembershipType(String membershipType) {
         this.membershipType = membershipType;
     }
+
+    public Tournament getTournament() {
+        return tournament;
+    }
+
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
 }
+

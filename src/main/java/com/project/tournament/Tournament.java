@@ -12,7 +12,7 @@ import java.util.List;
 public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
     private String location;
@@ -24,7 +24,7 @@ public class Tournament {
 
     }
 
-    public Tournament(long id, LocalDate startDate, LocalDate endDate, String location, long entryFee, long winnerAmount, List<String> members) {
+    public Tournament(Long id, LocalDate startDate, LocalDate endDate, String location, long entryFee, long winnerAmount, List<String> members) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -34,11 +34,11 @@ public class Tournament {
         this.members = members;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

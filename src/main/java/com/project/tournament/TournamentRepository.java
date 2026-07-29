@@ -1,6 +1,12 @@
 package com.project.tournament;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TournamentRepository extends CrudRepository<Tournament, Long> {
+import java.time.LocalDate;
+import java.util.List;
+
+public interface TournamentRepository extends JpaRepository<Tournament, Long> {
+    List<Tournament> findTournamentByStartDate(LocalDate tournamentStartDate);
+    Tournament findTournamentByLocation(String location);
+    Tournament findTournamentById(Long id);
 }
