@@ -71,7 +71,7 @@ First I created a MySql database instance in AWS RDS. Then configured a security
 
 ##  4. Challenges & Troubleshooting
 
-### Issue: CLI Password Parsing Error (`Access Denied`) and exposing credentials. 
+### Issue: CLI Password Parsing Error (`Access Denied`).
 * Problem: I ran into a problem when trying to connect to the AWS database through the CLI. Spring boot kept throwing a 'Access Denied' error because there are special characters in the password.
   Cause: This problem was caused by the lack of single quotes around the password ('password'). The CLI was interrupting the special characters instead of just parsing the password.
   Solution: Wrapped the username and password value in single quotes ('password') when entering the credentials in the terminal, to enforce strong quoting, telling the terminal to treat every character literally and ignore special programming symbols. 
